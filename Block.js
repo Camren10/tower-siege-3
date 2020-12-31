@@ -11,6 +11,7 @@ class Block {
       this.width = 30;
       this.height = 40;
       World.add(world, this.body);
+      this.visibility=255;
   }
 
   display() {
@@ -28,6 +29,7 @@ class Block {
       pop();
     } else{
       World.remove(world,this.body);
+      this.visibility=this.visibility-5;
     }
   }
   score() {
