@@ -10,8 +10,7 @@ var block1,block2,block3,block4,block5,block6,block7,block8,block9,block10,block
 var block17, block18, block19, block20, block21, block22, block23, block24, block25;
 var platform1,platform2,ground;
 var sling,polygon;
-var gameState = "onSling"
-var score = 0;
+var gameState = "onSling";
 
 function setup() {
   createCanvas(1200,400);
@@ -26,7 +25,7 @@ function setup() {
 
    block1 = new Block(600,320);
   block2 = new Block(570,320);
-  block3 = new Block(900,170);
+  block3 = new Block(900,150);
   block4 = new Block(540,320);
   block5 = new Block(510,320);
   block6 = new Block(630,320);
@@ -41,14 +40,14 @@ function setup() {
   block15 = new Block(570,260);
   block16 = new Block(630,260);
   block17 = new Block(600,230);
-  block18 = new Block(870,170);
-  block19 = new Block(840,170);
-  block20 = new Block(930,170);
-  block21 = new Block(960,170);
-  block22 = new Block(900,140);
-  block23 = new Block(870,140);
-  block24 = new Block(930,140);
-  block25 = new Block(900,110);
+  block18 = new Block(870,150);
+  block19 = new Block(840,150);
+  block20 = new Block(930,150);
+  block21 = new Block(960,150);
+  block22 = new Block(900,120);
+  block23 = new Block(870,120);
+  block24 = new Block(930,120);
+  block25 = new Block(900,90);
 
   polygon = new Polygon(200,200,50,50);
   sling = new Slingshot(polygon.body,{x:200,y:200});
@@ -91,38 +90,14 @@ function draw() {
   block22.display();
   block23.display();
   block24.display();
-  block1.score();
-  block2.score();
-  block3.score();
-  block4.score();
-  block5.score();
-  block6.score();
-  block7.score();
-  block8.score();
-  block9.score();
-  block10.score();
-  block11.score();
-  block12.score();
-  block13.score();
-  block14.score();
-  block15.score();
-  block16.score();
-  block17.score();
-  block18.score();
-  block19.score();
-  block20.score();
-  block21.score();
-  block22.score();
-  block23.score();
-  block24.score();
-  block25.score();
-
   fill("grey");
   block17.display();
-  fill("black");
+  textSize(35);
+  fill(0);
+  text("DRAG AND RELEASE THE BALL TO DESTROY THE BOXES", 150, 385)
+  fill("orange");
   textSize(20);
-  text("PRESS SPACE FOR A SECOND CHANCE !!",90,90);
-  text("SCORE : "+score,750,40);
+  text("PRESS SPACE FOR A SECOND CHANCE !!",20,20)
 }
 
 function mouseDragged(){
@@ -139,8 +114,6 @@ function mouseReleased(){
 
 function keyPressed() {
   if (keyCode === 32) {
-    Matter.Body.setPosition(polygon.body,{x:200,y:200});
     sling.attach(polygon.body);
-    gameState = "onSling";
   }
 }
